@@ -2,26 +2,18 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.*?>
 <?scenebuilder-stylesheet mailStyles.css?>
 <?import java.net.*?>
 
-<BorderPane prefHeight="300.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1"
+<GridPane prefHeight="300.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1"
             xmlns="http://javafx.com/javafx/2.2"
-            fx:controller="br.com.beganinha.windowsexplorer.entrypoint.controller.">
-    <bottom>
-        <Pane prefHeight="200.0" prefWidth="200.0"/>
-    </bottom>
-    <center>
-        <Pane prefHeight="200.0" prefWidth="200.0"/>
-    </center>
-    <left>
-        <VBox prefHeight="200.0" prefWidth="100.0"/>
-    </left>
-    <top>
-        <HBox prefHeight="100.0" prefWidth="200.0"/>
-    </top>
+            fx:controller="br.com.beganinha.windowsexplorer.entrypoint.controller.WindowsExplorerController">
+
+    <TextField fx:id="teste" GridPane.columnIndex="1" GridPane.rowIndex="1"></TextField>
+    <Button text="Entrar" GridPane.columnIndex="1" GridPane.rowIndex="2"
+            onAction="#entrar"></Button>
     <stylesheets>
         <URL value="@winexplorer.css" />
     </stylesheets>
-</BorderPane>
+</GridPane>

@@ -8,5 +8,6 @@ module winexplorer {
     requires spring.boot.autoconfigure;
     // add other required JavaFX modules here
 
-    exports br.com.beganinha.windowsexplorer.entrypoint.controller;
+    opens br.com.beganinha.windowsexplorer.entrypoint.controller;
+    opens br.com.beganinha.windowsexplorer.entrypoint;
 }

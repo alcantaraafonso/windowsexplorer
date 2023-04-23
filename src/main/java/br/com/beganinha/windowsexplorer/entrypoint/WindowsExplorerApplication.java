@@ -1,6 +1,6 @@
-package br.com.beganinha.windowsexplorer.entrypoint.controller;
+package br.com.beganinha.windowsexplorer.entrypoint;
 
-import br.com.beganinha.windowsexplorer.entrypoint.controller.JavaFxApplicationSupport;
+import br.com.beganinha.windowsexplorer.entrypoint.JavaFxApplicationSupport;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
