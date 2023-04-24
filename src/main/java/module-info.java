@@ -10,4 +10,5 @@ module winexplorer {
 
     opens br.com.beganinha.windowsexplorer.entrypoint.controller;
     opens br.com.beganinha.windowsexplorer.entrypoint;
+    opens br.com.beganinha.windowsexplorer.dataprovider.ui;
 }

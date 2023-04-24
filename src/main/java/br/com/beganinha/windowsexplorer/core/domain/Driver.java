@@ -1,6 +1,6 @@
 package br.com.beganinha.windowsexplorer.core.domain;
 
-public class Drive {
+public class Driver {
 
     private String letter;
     private long totalCapicty;

@@ -1,3 +1,10 @@
-br\com\beganinha\windowsexplorer\JavaFxApplicationSupport.class
-br\com\beganinha\windowsexplorer\entrypoint\controller\MyController.class
-br\com\beganinha\windowsexplorer\WindowsExplorerApplication.class
+br\com\beganinha\windowsexplorer\core\dataprovider\ListDrivers.class
+br\com\beganinha\windowsexplorer\core\domain\Driver.class
+br\com\beganinha\windowsexplorer\config\ListDriversConfig.class
+br\com\beganinha\windowsexplorer\core\usecase\ListDriversUseCase.class
+br\com\beganinha\windowsexplorer\dataprovider\ui\JavaFxApplicationSupport.class
+br\com\beganinha\windowsexplorer\dataprovider\impl\ListDriversImpl.class
+br\com\beganinha\windowsexplorer\entrypoint\controller\WindowsExplorerController.class
+br\com\beganinha\windowsexplorer\entrypoint\WindowsExplorerApplication.class
+module-info.class
+br\com\beganinha\windowsexplorer\core\usecase\impl\ListDriversUseCaseImpl.class

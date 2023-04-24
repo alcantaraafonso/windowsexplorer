@@ -1,4 +1,4 @@
-package br.com.beganinha.windowsexplorer.entrypoint;
+package br.com.beganinha.windowsexplorer.dataprovider.ui;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
