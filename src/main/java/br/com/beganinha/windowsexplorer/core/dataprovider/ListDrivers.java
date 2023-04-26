@@ -5,5 +5,5 @@ import br.com.beganinha.windowsexplorer.core.domain.Driver;
 import java.util.List;
 
 public interface ListDrivers {
-    public List<Driver> listDrivers();
+    List<Driver> listDrivers();
 }

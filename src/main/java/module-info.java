@@ -6,6 +6,8 @@ module winexplorer {
     requires spring.context;
     requires spring.boot;
     requires spring.boot.autoconfigure;
+    requires lombok;
+    requires org.mapstruct;
     // add other required JavaFX modules here
 
     opens br.com.beganinha.windowsexplorer.entrypoint.controller;
