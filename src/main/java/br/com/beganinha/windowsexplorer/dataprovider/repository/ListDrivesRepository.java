@@ -15,9 +15,11 @@ public class ListDrivesRepository {
         List<DriverEntity> drivers = new ArrayList<>();
         if (drives != null && drives.length > 0) {
             for (File aDrive : drives) {
-                DriverEntity driverEntity = new DriverEntity();
-                driverEntity.setLetter(aDrive.getName());
-                drivers.add(driverEntity);
+                drivers.add(DriverEntity.builder()
+                        .letter(aDrive.toString())
+                        .totalCapicty(aDrive.getTotalSpace())
+                        .freeCapicty(aDrive.getFreeSpace())
+                        .build());
             }
         }
         return drivers;

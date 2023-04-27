@@ -29,4 +29,13 @@ public class Driver {
     public void setFreeCapicty(long freeCapicty) {
         this.freeCapicty = freeCapicty;
     }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "letter='" + letter + '\'' +
+                ", totalCapicty=" + totalCapicty +
+                ", freeCapicty=" + freeCapicty +
+                '}';
+    }
 }

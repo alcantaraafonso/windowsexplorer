@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class ListDriversConfig {
 
     @Bean
-    public ListDriversUseCaseImpl listDriversUseCase(ListDriversImpl listDrivers) {
-        return new ListDriversUseCaseImpl(listDrivers);
+    public ListDriversUseCaseImpl listDriversUseCase(ListDriversImpl listDriverImpl) {
+        return new ListDriversUseCaseImpl(listDriverImpl);
     }
+
 }
