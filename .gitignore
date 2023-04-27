@@ -27,3 +27,4 @@ replay_pid*
 .classpath
 .settings/
 target/
+/.idea/inspectionProfiles/Project_Default.xml
