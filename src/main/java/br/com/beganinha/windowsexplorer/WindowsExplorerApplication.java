@@ -1,9 +1,9 @@
-package br.com.beganinha.windowsexplorer.entrypoint;
+package br.com.beganinha.windowsexplorer;
 
 import br.com.beganinha.windowsexplorer.dataprovider.ui.JavaFxApplicationSupport;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "br.com.beganinha.windowsexplorer")
+@SpringBootApplication
 public class WindowsExplorerApplication {
 
     public static void main(String[] args) {

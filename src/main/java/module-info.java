@@ -11,6 +11,10 @@ module winexplorer {
     // add other required JavaFX modules here
 
     opens br.com.beganinha.windowsexplorer.entrypoint.controller;
-    opens br.com.beganinha.windowsexplorer.entrypoint;
     opens br.com.beganinha.windowsexplorer.dataprovider.ui;
+    opens br.com.beganinha.windowsexplorer.config;
+    opens br.com.beganinha.windowsexplorer.dataprovider.impl;
+    opens br.com.beganinha.windowsexplorer.dataprovider.repository;
+    opens br.com.beganinha.windowsexplorer.dataprovider.repository.mapper;
+    opens br.com.beganinha.windowsexplorer;
 }
