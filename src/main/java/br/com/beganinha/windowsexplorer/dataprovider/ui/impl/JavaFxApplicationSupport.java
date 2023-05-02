@@ -1,4 +1,4 @@
-package br.com.beganinha.windowsexplorer.dataprovider.ui;
+package br.com.beganinha.windowsexplorer.dataprovider.ui.impl;
 
 import br.com.beganinha.windowsexplorer.WindowsExplorerApplication;
 import javafx.application.Application;
