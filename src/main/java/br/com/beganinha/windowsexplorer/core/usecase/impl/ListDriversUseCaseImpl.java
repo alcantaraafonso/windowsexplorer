@@ -4,6 +4,7 @@ import br.com.beganinha.windowsexplorer.core.dataprovider.ListDrivers;
 import br.com.beganinha.windowsexplorer.core.domain.Driver;
 import br.com.beganinha.windowsexplorer.core.usecase.ListDriversUseCase;
 
+import java.io.File;
 import java.util.List;
 
 public class ListDriversUseCaseImpl implements ListDriversUseCase {
@@ -17,5 +18,10 @@ public class ListDriversUseCaseImpl implements ListDriversUseCase {
     @Override
     public List<Driver> listDrivers() {
         return listDrivers.listDrivers();
+    }
+
+    @Override
+    public boolean IsDrive(File f) {
+        return false;
     }
 }
