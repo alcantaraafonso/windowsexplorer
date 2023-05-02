@@ -27,4 +27,8 @@ replay_pid*
 .classpath
 .settings/
 target/
+build/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 /.idea/inspectionProfiles/Project_Default.xml
