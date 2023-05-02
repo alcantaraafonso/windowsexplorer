@@ -3,17 +3,14 @@ package br.com.beganinha.windowsexplorer.core.domain;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.image.ImageView;
 
-/**
- * This class is called FileInfo to avoid confusing between this class and java.io.File
- */
-public class FileInfo {
+public class File {
 
     private ImageView image;
     private SimpleStringProperty name;
     private SimpleStringProperty size;
     private SimpleStringProperty date;
 
-    public FileInfo(ImageView image, String name, String size, String date){
+    public File(ImageView image, String name, String size, String date){
         super();
         this.image = image;
         this.name = new SimpleStringProperty(name);
@@ -21,7 +18,7 @@ public class FileInfo {
         this.date = new SimpleStringProperty(date);
     }
 
-    public FileInfo(String name, String size, String date){
+    public File(String name, String size, String date){
         super();
         //this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);

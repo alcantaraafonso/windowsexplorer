@@ -1,6 +1,6 @@
 package br.com.beganinha.windowsexplorer.dataprovider.ui;
 
-import br.com.beganinha.windowsexplorer.core.domain.FileInfo;
+import br.com.beganinha.windowsexplorer.core.domain.File;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,13 +26,13 @@ public abstract class FileExplorerFx implements FileExplorer {
     static TilePane tilePane;
     SimpleDateFormat sdf;
 
-    TableView<FileInfo> tableview;
-    TableColumn<FileInfo, ImageView> image;
-    TableColumn<FileInfo, String> date;
-    TableColumn<FileInfo, String> name;
-    TableColumn<FileInfo, String> size;
+    TableView<File> tableview;
+    TableColumn<File, ImageView> image;
+    TableColumn<File, String> date;
+    TableColumn<File, String> name;
+    TableColumn<File, String> size;
 
-    FileExplorerFx() {
+    public FileExplorerFx() {
     }
 
 

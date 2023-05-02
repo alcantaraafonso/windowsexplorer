@@ -1,6 +1,6 @@
 package br.com.beganinha.windowsexplorer.dataprovider.ui;
 
-import br.com.beganinha.windowsexplorer.core.domain.FileInfo;
+import br.com.beganinha.windowsexplorer.core.domain.File;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
@@ -18,14 +18,14 @@ public interface FileExplorer {
     boolean IsDrive(java.io.File f);
     int filesHiddensCount(java.io.File dir);
     void CreateTreeView(TreeView<String> treeview);
-    void CreateTableView(TableView<FileInfo> tableview, TableColumn<FileInfo, ImageView> image, TableColumn<FileInfo, String> date,
-                         TableColumn<FileInfo, String> name, TableColumn<FileInfo, String> size);
+    void CreateTableView(TableView<File> tableview, TableColumn<File, ImageView> image, TableColumn<File, String> date,
+                         TableColumn<File, String> name, TableColumn<File, String> size);
     void CreateTableView();
     void CreateTilesView();
     void setLabelTxt();
     void Initiate();
-    void setValues(TableView<FileInfo> tableview, TableColumn<FileInfo, ImageView> image, TableColumn<FileInfo, String> date,
-                   TableColumn<FileInfo, String> name, TableColumn<FileInfo, String> size);
+    void setValues(TableView<File> tableview, TableColumn<File, ImageView> image, TableColumn<File, String> date,
+                   TableColumn<File, String> name, TableColumn<File, String> size);
     void CreateTiles();
     /**********************/
     public int NumOfDirectChilds(java.io.File f);

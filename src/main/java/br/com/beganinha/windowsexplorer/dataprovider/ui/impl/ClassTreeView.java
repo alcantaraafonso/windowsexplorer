@@ -1,6 +1,6 @@
 package br.com.beganinha.windowsexplorer.dataprovider.ui.impl;
 
-import br.com.beganinha.windowsexplorer.core.domain.FileInfo;
+import br.com.beganinha.windowsexplorer.core.domain.File;
 import br.com.beganinha.windowsexplorer.dataprovider.ui.FileExplorerFx;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -25,7 +25,7 @@ public class ClassTreeView extends FileExplorerFx {
     }
 
     @Override
-    public void CreateTableView(TableView<FileInfo> tableview, TableColumn<FileInfo, ImageView> image, TableColumn<FileInfo, String> date, TableColumn<FileInfo, String> name, TableColumn<FileInfo, String> size) {
+    public void CreateTableView(TableView<File> tableview, TableColumn<File, ImageView> image, TableColumn<File, String> date, TableColumn<File, String> name, TableColumn<File, String> size) {
 
     }
 
@@ -45,7 +45,7 @@ public class ClassTreeView extends FileExplorerFx {
     }
 
     @Override
-    public void setValues(TableView<FileInfo> tableview, TableColumn<FileInfo, ImageView> image, TableColumn<FileInfo, String> date, TableColumn<FileInfo, String> name, TableColumn<FileInfo, String> size) {
+    public void setValues(TableView<File> tableview, TableColumn<File, ImageView> image, TableColumn<File, String> date, TableColumn<File, String> name, TableColumn<File, String> size) {
 
     }
 
