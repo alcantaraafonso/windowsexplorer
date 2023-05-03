@@ -15,7 +15,7 @@ public class WindowsExplorerController {
     private TextField teste;
 
 //    @Autowired
-//    private ListDriversUseCase listDriversUseCase;
+    private ListDriversUseCase listDriversUseCase;
 
     public void entrar() {
 
@@ -24,7 +24,7 @@ public class WindowsExplorerController {
 
         // Aqui chamamos o component do SpringBoot desejado,
         // fazendo com que ele receba a bean ListDriversUseCase vinda do ambiente do SpringBoot:
-        ListDriversUseCase listDriversUseCase = (ListDriversUseCase)context.getBean("listDriversUseCase");
+        listDriversUseCase = (ListDriversUseCase)context.getBean("listDriversUseCase");
 
         List<Driver> drivers = listDriversUseCase.listDrivers();
         drivers.stream().forEach(driver -> {

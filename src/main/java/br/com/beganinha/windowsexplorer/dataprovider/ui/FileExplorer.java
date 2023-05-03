@@ -13,10 +13,7 @@ public interface FileExplorer {
      * will be created, they will implement necessary methods accordingly...*/
     Image getIconImageFX(java.io.File f);
     TreeItem<String>[] TreeCreate(java.io.File dir);
-    String calculateSize(java.io.File f);
-    String FindAbsolutePath(TreeItem<String> item, String s);
-    boolean IsDrive(java.io.File f);
-    int filesHiddensCount(java.io.File dir);
+
     void CreateTreeView(TreeView<String> treeview);
     void CreateTableView(TableView<File> tableview, TableColumn<File, ImageView> image, TableColumn<File, String> date,
                          TableColumn<File, String> name, TableColumn<File, String> size);
@@ -29,4 +26,10 @@ public interface FileExplorer {
     void CreateTiles();
     /**********************/
     public int NumOfDirectChilds(java.io.File f);
+
+    /**all these methods are implemented at FileInfoRepository **/
+    String calculateSize(java.io.File f);
+    String FindAbsolutePath(TreeItem<String> item, String s);
+    boolean IsDrive(java.io.File f);
+    int filesHiddensCount(java.io.File dir);
 }
