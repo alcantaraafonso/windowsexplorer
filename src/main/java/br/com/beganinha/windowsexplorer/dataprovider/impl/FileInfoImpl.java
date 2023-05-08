@@ -16,21 +16,21 @@ public class FileInfoImpl implements FileInfo {
 
     @Override
     public String calculateSize(File f) {
-        return null;
+        return fileInfoRepository.calculateSize(f);
     }
 
     @Override
     public String findAbsolutePath(TreeItem<String> item, String s) {
-        return null;
+        return fileInfoRepository.findAbsolutePath(item, s);
     }
 
     @Override
-    public boolean IsDrive(File f) {
-        return false;
+    public boolean isDrive(File f) {
+        return fileInfoRepository.isDrive(f);
     }
 
     @Override
     public int filesHiddensCount(File dir) {
-        return 0;
+        return fileInfoRepository.filesHiddensCount(dir);
     }
 }

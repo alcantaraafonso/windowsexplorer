@@ -17,7 +17,7 @@ public class FileInfoRepository {
         String s;
         long sizeInByte = 0;
         Path path;
-        if (IsDrive(f)) {
+        if (isDrive(f)) {
             return Long.toString(f.getTotalSpace() / (1024 * 1024 * 1024)) + "GB";
         }
 
@@ -47,7 +47,7 @@ public class FileInfoRepository {
         return null;
     }
 
-    public boolean IsDrive(java.io.File f) {
+    public boolean isDrive(java.io.File f) {
         java.io.File[] sysroots = java.io.File.listRoots();
         for (int i = 0; i < sysroots.length; i++) {
             if (f.equals(sysroots[i])) return true;
@@ -69,7 +69,16 @@ public class FileInfoRepository {
         return count;
     }
 
-    public String FindAbsolutePath(TreeItem<String> item, String s) {
-        return null;
+    public String findAbsolutePath(TreeItem<String> item, String s) {
+        if((item.getParent()==null) || (item.getParent().getValue().equals("This PC"))){ return s;}
+        else{
+            String dir = item.getParent().getValue();
+            dir = dir+"\\"+s;
+            return findAbsolutePath(item.getParent(), dir);
+        }
+    }
+
+    public int numOfDirectChilds(java.io.File f) {
+        return 0;
     }
 }
