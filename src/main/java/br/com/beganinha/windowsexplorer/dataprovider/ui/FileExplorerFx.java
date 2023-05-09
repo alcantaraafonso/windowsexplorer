@@ -8,7 +8,9 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
+import lombok.Data;
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
@@ -21,13 +23,15 @@ import java.text.SimpleDateFormat;
 
 import static javafx.embed.swing.SwingFXUtils.toFXImage;
 
+@Component
+@Data
 public abstract class FileExplorerFx implements FileExplorer {
 
-    static java.io.File CurrDirFile;
-    static String CurrDirStr;
-    static Label lbl;
-    static String CurrDirName;
-    static TilePane tilePane;
+    private java.io.File currDirFile;
+    private String currDirStr;
+    private Label lbl;
+    private String currDirName;
+    private TilePane tilePane;
     SimpleDateFormat sdf;
 
     TableView<File> tableview;
@@ -36,12 +40,12 @@ public abstract class FileExplorerFx implements FileExplorer {
     TableColumn<File, String> name;
     TableColumn<File, String> size;
 
-    private FileInfoUseCase fileInfoUseCase;
-    private ApplicationContext context;
+//    private FileInfoUseCase fileInfoUseCase;
+//    private ApplicationContext context;
 
     public FileExplorerFx() {
-        this.context = SpringContext.getAppContext();
-        this.fileInfoUseCase = (FileInfoUseCase)context.getBean("fileInfoUseCase");
+//        this.context = SpringContext.getAppContext();
+//        this.fileInfoUseCase = (FileInfoUseCase)context.getBean("fileInfoUseCase");
     }
 
     @Override
@@ -55,23 +59,23 @@ public abstract class FileExplorerFx implements FileExplorer {
 
     @Override
     public void setLabelTxt() {
-        lbl.setText(CurrDirStr);
+        lbl.setText(currDirStr);
     }
 
-    //TODO criar um caso de uso e colocar este método neste
-    public String calculateSize(java.io.File f) {
-        return fileInfoUseCase.calculateSize(f);
-
-    }
-
-    //TODO criar um caso de uso e colocar este método neste
-    public boolean IsDrive(java.io.File f) {
-        return fileInfoUseCase.IsDrive(f);
-    }
-
-    //TODO criar um caso de uso e colocar este método neste
-    @Override
-    public int filesHiddensCount(java.io.File dir) {
-        return fileInfoUseCase.filesHiddensCount(dir);
-    }
+//    //TODO criar um caso de uso e colocar este método neste
+//    public String calculateSize(java.io.File f) {
+//        return fileInfoUseCase.calculateSize(f);
+//
+//    }
+//
+//    //TODO criar um caso de uso e colocar este método neste
+//    public boolean IsDrive(java.io.File f) {
+//        return fileInfoUseCase.IsDrive(f);
+//    }
+//
+//    //TODO criar um caso de uso e colocar este método neste
+//    @Override
+//    public int filesHiddensCount(java.io.File dir) {
+//        return fileInfoUseCase.filesHiddensCount(dir);
+//    }
 }
