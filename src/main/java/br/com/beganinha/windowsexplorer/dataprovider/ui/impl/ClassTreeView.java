@@ -20,26 +20,30 @@ public class ClassTreeView extends FileExplorerFx {
     public ClassTreeView() {
         this.context = SpringContext.getAppContext();
         this.fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
-
     }
 
     @Override
     public TreeItem<String>[] treeCreate(java.io.File dir) {
 
+
         TreeItem<String>[] A = null;
         java.io.File[] fl = dir.listFiles();
 
-        //Avaliar uma forma de não acessar o useCase da View e sim do controller
+//        System.out.println("dir.listFiles(): " + dir.listFiles());
+
+        //Avaliar uma forma de useCase a partir do controller e não da View
         int n = fl.length - fileInfoUseCase.filesHiddensCount(dir);
         A = new TreeItem[n];
         int pos = 0;
         for (int i = 0; i < fl.length; i++) {
 
             if (!fl[i].isFile() && !fl[i].isHidden() && fl[i].isDirectory() && n == 0) {
-                A[pos] = new TreeItem<>(fl[i].getName(), new ImageView(new Image(ClassLoader.getSystemResourceAsStream("br/com/beganinha/windowsexplorer/dataprovider/ui/impl/img/folderOpen.png"))));
+                //TODO carregar a imagem
+                A[pos] = new TreeItem<>(fl[i].getName(), new ImageView(new Image(getClass().getClassLoader().getResource("folderOpen.png").toString()))); //new ImageView(new Image(ClassLoader.getSystemResourceAsStream("br/com/beganinha/windowsexplorer/dataprovider/ui/impl/img/folderOpen.png")))
                 pos++;
             } else if (!fl[i].isFile() && !fl[i].isHidden() && fl[i].isDirectory() && n > 0) {
-                A[pos] = new TreeItem<>(fl[i].getName(), new ImageView(new Image(ClassLoader.getSystemResourceAsStream("br/com/beganinha/windowsexplorer/dataprovider/ui/impl/img/folderOpen.png"))));
+                //TODO carregar a imagem
+                A[pos] = new TreeItem<>(fl[i].getName(), new ImageView(new Image(getClass().getClassLoader().getResource("folderOpen.png").toString())));
                 try {
                     A[pos].getChildren().addAll(treeCreate(fl[i]));
                     pos++;
@@ -57,15 +61,16 @@ public class ClassTreeView extends FileExplorerFx {
     public void createTreeView(TreeView<String> treeview) {
         java.io.File[] sysroots = java.io.File.listRoots();
         //TODO carregar a imagem
-        TreeItem<String> ThisPc = new TreeItem<>("This PC", null); //new ImageView(new Image(ClassLoader.getSystemResourceAsStream("br/com/beganinha/windowsexplorer/dataprovider/ui/impl/img/pc.png")))
+        TreeItem<String> ThisPc = new TreeItem<>("This PC", new ImageView(new Image(getClass().getClassLoader().getResource("pc.png").toString()))); //new ImageView(new Image(ClassLoader.getSystemResourceAsStream("br/com/beganinha/windowsexplorer/dataprovider/ui/impl/img/pc.png")))
         TreeItem<String>[] drives = new TreeItem[sysroots.length];
-        for(int i=0; i<sysroots.length;i++){
+        for (int i = 0; i < sysroots.length; i++) {
             //TODO carregar a imagem
-            drives[i] = new TreeItem<>(sysroots[i].getAbsolutePath(), null); //new ImageView(new Image(ClassLoader.getSystemResourceAsStream("br/com/beganinha/windowsexplorer/dataprovider/ui/impl/img/thumb_Hard_Drive.png")))
-            try{
+            drives[i] = new TreeItem<>(sysroots[i].getAbsolutePath(), new ImageView(new Image(getClass().getClassLoader().getResource("thumb_Hard_Drive.png").toString()))); //new ImageView(new Image(ClassLoader.getSystemResourceAsStream("br/com/beganinha/windowsexplorer/dataprovider/ui/impl/img/thumb_Hard_Drive.png")))
+            try {
                 drives[i].getChildren().addAll(treeCreate(sysroots[i]));
-            }catch(NullPointerException x){System.out.println("Exeption x detected: "+x.fillInStackTrace()+drives[i].toString());}
-            finally {
+            } catch (NullPointerException x) {
+                System.out.println("Exeption x detected: " + x.fillInStackTrace() + drives[i].toString());
+            } finally {
                 ThisPc.getChildren().add(drives[i]);
             }
         }

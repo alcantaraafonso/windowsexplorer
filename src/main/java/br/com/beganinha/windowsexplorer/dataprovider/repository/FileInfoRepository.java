@@ -59,10 +59,11 @@ public class FileInfoRepository {
         int count = 0;
         java.io.File[] fl = dir.listFiles();
         //System.out.println(fl.length);
-        for(int i=0; i<fl.length; i++){
-            try{if(fl[i].isHidden() || fl[i].isFile()) count++; }
-            catch(Exception x){
-                System.out.println("Exception at prototype1, fileexplorer CountDir: "+x.getMessage());
+        for (int i = 0; i < fl.length; i++) {
+            try {
+                if (fl[i].isHidden() || fl[i].isFile()) count++;
+            } catch (Exception x) {
+                System.out.println("Exception at prototype1, fileexplorer CountDir: " + x.getMessage());
             }
 
         }
@@ -70,10 +71,11 @@ public class FileInfoRepository {
     }
 
     public String findAbsolutePath(TreeItem<String> item, String s) {
-        if((item.getParent()==null) || (item.getParent().getValue().equals("This PC"))){ return s;}
-        else{
+        if ((item.getParent() == null) || (item.getParent().getValue().equals("This PC"))) {
+            return s;
+        } else {
             String dir = item.getParent().getValue();
-            dir = dir+"\\"+s;
+            dir = dir + "\\" + s;
             return findAbsolutePath(item.getParent(), dir);
         }
     }

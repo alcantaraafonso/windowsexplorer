@@ -101,9 +101,9 @@ public class WindowsExplorerController implements Initializable {
         Pane newLoadedPane;
         secPane.getChildren().clear();
         if (count == 0) {
-            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("Scene2.fxml"));
+            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/Scene2.fxml"));
         } else {
-            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("Scene3.fxml"));
+            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/Scene3.fxml"));
         }
         secPane.getChildren().add(newLoadedPane);
     }
