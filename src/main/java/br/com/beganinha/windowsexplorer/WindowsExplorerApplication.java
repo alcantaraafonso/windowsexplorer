@@ -1,6 +1,5 @@
 package br.com.beganinha.windowsexplorer;
 
-import br.com.beganinha.windowsexplorer.dataprovider.ui.JavaFxApplicationSupport;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
