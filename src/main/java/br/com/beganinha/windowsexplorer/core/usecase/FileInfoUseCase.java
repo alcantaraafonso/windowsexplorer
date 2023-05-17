@@ -8,7 +8,7 @@ public interface FileInfoUseCase {
 
     String findAbsolutePath(TreeItem<String> item, String s);
 
-    boolean IsDrive(java.io.File f);
+    boolean isDrive(java.io.File f);
 
     int filesHiddensCount(java.io.File dir);
 

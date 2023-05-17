@@ -25,7 +25,7 @@ public class FileInfoUseCaseImpl implements FileInfoUseCase {
     }
 
     @Override
-    public boolean IsDrive(File f) {
+    public boolean isDrive(File f) {
         return false;
     }
 
