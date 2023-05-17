@@ -1,6 +1,5 @@
-package br.com.beganinha.windowsexplorer.dataprovider.ui;
+package br.com.beganinha.windowsexplorer;
 
-import br.com.beganinha.windowsexplorer.WindowsExplorerApplication;
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.scene.Parent;
