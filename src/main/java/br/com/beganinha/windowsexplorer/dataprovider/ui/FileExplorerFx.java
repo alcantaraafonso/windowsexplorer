@@ -27,18 +27,18 @@ import static javafx.embed.swing.SwingFXUtils.toFXImage;
 @Data
 public abstract class FileExplorerFx implements FileExplorer {
 
-    private java.io.File currDirFile;
+//    private java.io.File currDirFile;
     private String currDirStr;
     private Label lbl;
-    private String currDirName;
-    private TilePane tilePane;
-    SimpleDateFormat sdf;
+//    private String currDirName;
+//    private TilePane tilePane;
+//    SimpleDateFormat sdf;
 
-    TableView<File> tableview;
-    TableColumn<File, ImageView> image;
-    TableColumn<File, String> date;
-    TableColumn<File, String> name;
-    TableColumn<File, String> size;
+//    TableView<File> tableview;
+//    TableColumn<File, ImageView> image;
+//    TableColumn<File, String> date;
+//    TableColumn<File, String> name;
+   // TableColumn<File, String> size;
 
 //    private FileInfoUseCase fileInfoUseCase;
 //    private ApplicationContext context;
