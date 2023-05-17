@@ -29,7 +29,6 @@ import java.util.ResourceBundle;
 //import static br.com.beganinha.windowsexplorer.dataprovider.ui.impl.ControllerTilesView.Fx3;
 
 @Controller
-@Data
 public class ControllerTreeView implements Initializable {
     @FXML
     private Button btn;
@@ -44,27 +43,19 @@ public class ControllerTreeView implements Initializable {
     private java.io.File currDirFile;
     private String currDirName;
 
-    @Autowired
-    static ClassTreeView classTreeViewMain;
-
     private ApplicationContext context = SpringContext.getAppContext();
     private FileInfoUseCase fileInfoUseCase;
 
-//    public ControllerTreeView() {
-//        this.fileInfoUseCase = (FileInfoUseCase) this.context.getBean( "fileInfoUseCase");
-//    }
-
-    //public static FileExplorerFx Fx2;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         count = 0;
 
-        setCurrDirFile(new File("./"));
-        setCurrDirStr(getCurrDirFile().getAbsolutePath());
+        currDirFile = new File("./");
+        currDirStr = currDirFile.getAbsolutePath();
 
 //        Fx2.lbl = label;
 
-        label.setText(getCurrDirStr());
+        label.setText(currDirStr);
         try {
             Pane newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("Scene2.fxml"));
             secPane.getChildren().add(newLoadedPane);
@@ -84,11 +75,11 @@ public class ControllerTreeView implements Initializable {
         if (mouseEvent.getClickCount() == 1) {
             try {
                 TreeItem<String> item = treeview.getSelectionModel().getSelectedItem();
-                setCurrDirName(item.getValue());
+                currDirName = item.getValue();
                 System.out.println("Selected Text : " + item.getValue());
-                setCurrDirFile(new File(fileInfoUseCase.findAbsolutePath(item, item.getValue())));
-                setCurrDirStr(getCurrDirFile().getAbsolutePath());
-                label.setText(getCurrDirStr());
+                currDirFile = new File(fileInfoUseCase.findAbsolutePath(item, item.getValue()));
+                currDirStr = currDirFile.getAbsolutePath();
+                label.setText(currDirStr);
 //                Fx2.tableview.getItems().clear();
 //                Fx2.createTableView();
 //                Fx3.createTiles();
