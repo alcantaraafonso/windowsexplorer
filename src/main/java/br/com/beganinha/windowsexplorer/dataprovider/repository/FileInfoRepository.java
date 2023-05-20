@@ -1,12 +1,18 @@
 package br.com.beganinha.windowsexplorer.dataprovider.repository;
 
 import javafx.scene.control.TreeItem;
+import javafx.scene.image.Image;
 import org.springframework.stereotype.Component;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import static javafx.embed.swing.SwingFXUtils.toFXImage;
 
 @Component
 public class FileInfoRepository {
@@ -82,5 +88,14 @@ public class FileInfoRepository {
 
     public int numOfDirectChilds(java.io.File f) {
         return 0;
+    }
+
+    public Image getIconImageFX(java.io.File f) {
+        ImageIcon icon = (ImageIcon) FileSystemView.getFileSystemView().getSystemIcon(f);
+        java.awt.Image img = icon.getImage();
+        BufferedImage bimg = (BufferedImage) img;
+        Image imgfx = toFXImage(bimg, null);
+
+        return imgfx;
     }
 }

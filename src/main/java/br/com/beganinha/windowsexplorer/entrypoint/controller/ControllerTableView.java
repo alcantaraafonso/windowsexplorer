@@ -63,15 +63,6 @@ public class ControllerTableView implements Initializable {
         this.image = image;
     }
 
-    private Image getIconImageFX(java.io.File f) {
-        ImageIcon icon = (ImageIcon) FileSystemView.getFileSystemView().getSystemIcon(f);
-        java.awt.Image img = icon.getImage();
-        BufferedImage bimg = (BufferedImage) img;
-        Image imgfx = toFXImage(bimg, null);
-
-        return imgfx;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.context = SpringContext.getAppContext();
@@ -104,10 +95,10 @@ public class ControllerTableView implements Initializable {
                 ImageView img = null;
                 try {
                     if (fileInfoUseCase.isDrive(fl[i])) {
-                        img = new ImageView(getIconImageFX(fl[i]));
+                        img = new ImageView(fileInfoUseCase.getIconImageFX(fl[i]));
                         s1 = fl[i].getAbsolutePath();
                     } else {
-                        img = new ImageView(getIconImageFX(fl[i]));
+                        img = new ImageView(fileInfoUseCase.getIconImageFX(fl[i]));
                         s1 = fl[i].getName();
                     }
                     s2 = fileInfoUseCase.calculateSize(fl[i]);

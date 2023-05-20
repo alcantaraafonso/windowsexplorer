@@ -100,7 +100,7 @@ public class ControllerTreeView implements Initializable {
         if (count == 0) {
             newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/TableView.fxml"));
         } else {
-            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/TilesView.fxml"));
+            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/TileView.fxml"));
         }
         secPane.getChildren().add(newLoadedPane);
     }

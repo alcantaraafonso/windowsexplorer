@@ -3,6 +3,7 @@ package br.com.beganinha.windowsexplorer.core.usecase.impl;
 import br.com.beganinha.windowsexplorer.core.dataprovider.FileInfo;
 import br.com.beganinha.windowsexplorer.core.usecase.FileInfoUseCase;
 import javafx.scene.control.TreeItem;
+import javafx.scene.image.Image;
 
 import java.io.File;
 
@@ -33,4 +34,11 @@ public class FileInfoUseCaseImpl implements FileInfoUseCase {
     public int filesHiddensCount(File dir) {
         return 0;
     }
+
+    @Override
+    public Image getIconImageFX(File f) {
+        return fileInfo.getIconImageFX(f);
+    }
+
+
 }

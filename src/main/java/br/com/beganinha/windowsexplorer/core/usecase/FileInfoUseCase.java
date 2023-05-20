@@ -1,6 +1,7 @@
 package br.com.beganinha.windowsexplorer.core.usecase;
 
 import javafx.scene.control.TreeItem;
+import javafx.scene.image.Image;
 
 public interface FileInfoUseCase {
 
@@ -12,5 +13,6 @@ public interface FileInfoUseCase {
 
     int filesHiddensCount(java.io.File dir);
 
+    Image getIconImageFX(java.io.File f);
 
 }

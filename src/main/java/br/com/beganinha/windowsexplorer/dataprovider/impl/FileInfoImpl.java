@@ -3,6 +3,7 @@ package br.com.beganinha.windowsexplorer.dataprovider.impl;
 import br.com.beganinha.windowsexplorer.core.dataprovider.FileInfo;
 import br.com.beganinha.windowsexplorer.dataprovider.repository.FileInfoRepository;
 import javafx.scene.control.TreeItem;
+import javafx.scene.image.Image;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,4 +34,11 @@ public class FileInfoImpl implements FileInfo {
     public int filesHiddensCount(File dir) {
         return fileInfoRepository.filesHiddensCount(dir);
     }
+
+    @Override
+    public Image getIconImageFX(File f) {
+        return fileInfoRepository.getIconImageFX(f);
+    }
+
+
 }
