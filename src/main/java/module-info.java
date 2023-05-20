@@ -10,6 +10,7 @@ module winexplorer {
     requires lombok;
     requires org.mapstruct;
     requires java.desktop;
+    requires java.annotation;
     // add other required JavaFX modules here
 
     opens br.com.beganinha.windowsexplorer.entrypoint.controller;
