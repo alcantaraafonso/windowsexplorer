@@ -34,7 +34,7 @@ public class JavaFxApplicationSupport extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("main-scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("TreeView.fxml"));
         Scene scene = new Scene(root);
         //primaryStage.set(true);
         primaryStage.setTitle("Windows Explorer");

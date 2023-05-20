@@ -54,7 +54,7 @@ public class ControllerTreeView implements Initializable {
 
         label.setText(currDirStr);
         try {
-            Pane newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("Scene2.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("TableView.fxml"));
             secPane.getChildren().add(newLoadedPane);
         } catch (NullPointerException x) {
             x.printStackTrace();
@@ -98,9 +98,9 @@ public class ControllerTreeView implements Initializable {
         Pane newLoadedPane;
         secPane.getChildren().clear();
         if (count == 0) {
-            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/Scene2.fxml"));
+            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/TableView.fxml"));
         } else {
-            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/Scene3.fxml"));
+            newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource("/TilesView.fxml"));
         }
         secPane.getChildren().add(newLoadedPane);
     }
