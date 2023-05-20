@@ -2,6 +2,7 @@ module winexplorer {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.swing;
+    requires javafx.base;
     requires spring.beans;
     requires spring.core;
     requires spring.context;
@@ -20,4 +21,6 @@ module winexplorer {
     opens br.com.beganinha.windowsexplorer.dataprovider.repository.mapper;
     opens br.com.beganinha.windowsexplorer;
     opens br.com.beganinha.windowsexplorer.dataprovider.ui.impl;
+    opens br.com.beganinha.windowsexplorer.core.usecase;
+    opens br.com.beganinha.windowsexplorer.core.domain;
 }
