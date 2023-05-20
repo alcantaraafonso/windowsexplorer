@@ -149,6 +149,9 @@ public class ControllerTableView implements Initializable {
     }
 
     public void createTableView() {
+        this.context = SpringContext.getAppContext();
+        this.fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
+
         sdf = new SimpleDateFormat("dd/MM/yy");
         java.io.File[] fl;
         ObservableList<File> list;
@@ -169,10 +172,10 @@ public class ControllerTableView implements Initializable {
             ImageView img = null;
             try {
                 if (fileInfoUseCase.isDrive(fl[i])) {
-                    img = new ImageView(getIconImageFX(fl[i]));
+                    img = new ImageView(fileInfoUseCase.getIconImageFX(fl[i]));
                     s1 = fl[i].getAbsolutePath();
                 } else {
-                    img = new ImageView(getIconImageFX(fl[i]));
+                    img = new ImageView(fileInfoUseCase.getIconImageFX(fl[i]));
                     s1 = fl[i].getName();
                 }
                 s2 = fileInfoUseCase.calculateSize(fl[i]);
