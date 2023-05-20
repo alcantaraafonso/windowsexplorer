@@ -1,10 +1,8 @@
 package br.com.beganinha.windowsexplorer.entrypoint.controller;
 
 import br.com.beganinha.windowsexplorer.SpringContext;
-import br.com.beganinha.windowsexplorer.core.dataprovider.FileInfo;
 import br.com.beganinha.windowsexplorer.core.domain.File;
 import br.com.beganinha.windowsexplorer.core.usecase.FileInfoUseCase;
-import br.com.beganinha.windowsexplorer.dataprovider.ui.FileExplorerFx;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import lombok.Data;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
@@ -54,7 +51,7 @@ public class ControllerTableView implements Initializable {
 
     private SimpleDateFormat sdf;
 
-    private ApplicationContext context = SpringContext.getAppContext();
+    private ApplicationContext context;
     private FileInfoUseCase fileInfoUseCase;
 
     private void setValues(TableView<File> tableview, TableColumn<File, ImageView> image, TableColumn<File, String> date,
@@ -77,7 +74,8 @@ public class ControllerTableView implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
+        this.context = SpringContext.getAppContext();
+        this.fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
 
         setValues(tableview, image, date, name, size);
         if (currDirFile == null) {

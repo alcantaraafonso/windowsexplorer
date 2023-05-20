@@ -2,7 +2,6 @@ package br.com.beganinha.windowsexplorer.entrypoint.controller;
 
 import br.com.beganinha.windowsexplorer.SpringContext;
 import br.com.beganinha.windowsexplorer.core.usecase.FileInfoUseCase;
-import br.com.beganinha.windowsexplorer.dataprovider.ui.impl.ClassTreeView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
@@ -43,7 +40,7 @@ public class ControllerTreeView implements Initializable {
     private java.io.File currDirFile;
     private String currDirName;
 
-    private ApplicationContext context = SpringContext.getAppContext();
+    private ApplicationContext context;
     private FileInfoUseCase fileInfoUseCase;
 
     @Override
@@ -70,7 +67,8 @@ public class ControllerTreeView implements Initializable {
 
     @FXML
     public void handleMouseClicked(MouseEvent mouseEvent) {
-        fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
+        this.context = SpringContext.getAppContext();
+        this.fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
 
         if (mouseEvent.getClickCount() == 1) {
             try {
@@ -108,7 +106,8 @@ public class ControllerTreeView implements Initializable {
     }
 
     public TreeItem<String>[] treeCreate(java.io.File dir) {
-        fileInfoUseCase = (FileInfoUseCase) this.context.getBean( "fileInfoUseCase");
+        this.context = SpringContext.getAppContext();
+        this.fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
 
         TreeItem<String>[] A = null;
         java.io.File[] fl = dir.listFiles();
