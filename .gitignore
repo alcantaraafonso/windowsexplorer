@@ -29,6 +29,8 @@ replay_pid*
 .mvn/
 /target/
 /target/classes
+target/
+target/classes
 build/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
