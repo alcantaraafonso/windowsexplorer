@@ -14,18 +14,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//import static br.com.beganinha.windowsexplorer.dataprovider.ui.impl.ControllerTableView.Fx2;
-//import static br.com.beganinha.windowsexplorer.dataprovider.ui.impl.ControllerTilesView.Fx3;
-
-@Controller
+@Component
 public class ControllerTreeView implements Initializable {
     @FXML
     private Button btn;
@@ -43,8 +41,17 @@ public class ControllerTreeView implements Initializable {
     private ApplicationContext context;
     private FileInfoUseCase fileInfoUseCase;
 
+    @Autowired
+    private ControllerTableView controllerTableView;
+
+    @Autowired
+    private ControllerTileView controllerTileView;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.context = SpringContext.getAppContext();
+        this.fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
+
         count = 0;
 
         currDirFile = new File("./");
@@ -67,8 +74,6 @@ public class ControllerTreeView implements Initializable {
 
     @FXML
     public void handleMouseClicked(MouseEvent mouseEvent) {
-        this.context = SpringContext.getAppContext();
-        this.fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
 
         if (mouseEvent.getClickCount() == 1) {
             try {
@@ -78,9 +83,9 @@ public class ControllerTreeView implements Initializable {
                 currDirFile = new File(fileInfoUseCase.findAbsolutePath(item, item.getValue()));
                 currDirStr = currDirFile.getAbsolutePath();
                 label.setText(currDirStr);
-//                Fx2.tableview.getItems().clear();
-//                Fx2.createTableView();
-//                Fx3.createTiles();
+                controllerTableView.getTableview().getItems().clear();
+                controllerTableView.createTableView();
+                controllerTileView.createTiles();
                 /**tableview.getItems().clear();
                  CreateTableView();
                  /**call some other function to activate createtableview() in corres controller */
@@ -106,8 +111,6 @@ public class ControllerTreeView implements Initializable {
     }
 
     public TreeItem<String>[] treeCreate(java.io.File dir) {
-        this.context = SpringContext.getAppContext();
-        this.fileInfoUseCase = (FileInfoUseCase) context.getBean("fileInfoUseCase");
 
         TreeItem<String>[] A = null;
         java.io.File[] fl = dir.listFiles();
